@@ -1,4 +1,4 @@
-package com.fortune
+package com.fortune.api
 
 import android.os.Build
 import androidx.annotation.RequiresApi

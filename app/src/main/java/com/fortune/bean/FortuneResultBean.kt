@@ -1,4 +1,4 @@
-package com.fortune
+package com.fortune.bean
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
