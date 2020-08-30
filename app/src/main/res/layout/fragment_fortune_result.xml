@@ -1,33 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/fortune_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
         android:text="Fortune Telling..."
         android:textColor="@color/colorPrimary"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_back_to_entry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="go back"
-        android:textColor="#FFFFFF"
         android:background="@color/colorAccent"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="go back"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/fortune_content"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/fortune_content" />
+
+    <TextView
+        android:id="@+id/label_fortune_api"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:text="Web ad Fortune 無料版API"
+        android:textAlignment="textEnd"
+        android:textSize="5dp"
+        app:layout_constraintBottom_toTopOf="@id/link_fortune_api"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_back_to_entry" />
+
+    <TextView
+        android:id="@+id/link_fortune_api"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:ems="10"
+        android:linksClickable="true"
+        android:text="http://jugemkey.jp/api/waf/api_free.php"
+        android:textSize="5dp"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_fortune_api" />
+
+    <TextView
+        android:id="@+id/label_tarim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="原宿占い館 塔里木"
+        android:textSize="5dp"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/link_fortune_api" />
+
+    <TextView
+        android:id="@+id/link_tarim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:autoLink="web"
+        android:ems="10"
+        android:linksClickable="true"
+        android:text="http://www.tarim.co.jp/"
+        android:textSize="5dp"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_tarim" />
 </androidx.constraintlayout.widget.ConstraintLayout>
