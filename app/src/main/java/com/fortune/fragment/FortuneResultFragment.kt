@@ -25,6 +25,9 @@ import java.time.format.DateTimeFormatter
 
 class FortuneResultFragment: Fragment() {
 
+    /**
+     * FortuneResultFragment描画
+     */
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,7 +37,7 @@ class FortuneResultFragment: Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         val view = inflater.inflate(R.layout.fragment_fortune_result, container, false)
 
-        // Coroutine
+        /* Coroutine start */
         this.lifecycleScope.launch {
             // call API
             withContext(Dispatchers.Default) {
@@ -48,15 +51,20 @@ class FortuneResultFragment: Fragment() {
                 view?.findViewById<TextView>(R.id.fortune_content)?.text =
                     fortuneResult.get((0..11).random())?.content // TODO ランダムな星座を表示
 
-                // set clickListener
+                // ボタン押下で前画面へ移動
                 view.findViewById<Button>(R.id.button_back_to_entry).setOnClickListener {
                     fragmentManager?.popBackStack()
                 }
             }
         }
+        /* Coroutine end */
         return view
     }
 
+    /**
+     * 現在日付取得
+     * @return 現在日付（yyyy/MM/dd）
+     */
     @RequiresApi(Build.VERSION_CODES.O)
     fun getCurrentDate(): String {
         val today = LocalDate.now()
@@ -64,6 +72,12 @@ class FortuneResultFragment: Fragment() {
         return dateFormatter.format(today)
     }
 
+    /**
+     * json→FortuneResultBean変換
+     * @param today:現在日付（yyyy/MM/dd）
+     * @param strJson:レスポンスjson
+     * @return 運勢一覧（FortuneResultBeanリスト）
+     */
     private fun parseJson(today: String, strJson: String): List<FortuneResultBean> {
         val json = JSONObject(strJson)
         // remove "\" from json-property

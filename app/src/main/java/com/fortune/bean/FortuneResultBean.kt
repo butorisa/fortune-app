@@ -2,6 +2,9 @@ package com.fortune.bean
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
+/**
+ * 占いAPIレスポンスBean
+ */
 class FortuneResultBean {
     @JsonProperty("content")
     var content: String? = null

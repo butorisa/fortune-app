@@ -8,8 +8,11 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.fortune.R
 
-class EntryFragment: Fragment() {
+class EntryFragment : Fragment() {
 
+    /**
+     * EntryFragment描画
+     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -18,7 +21,7 @@ class EntryFragment: Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         val view = inflater.inflate(R.layout.fragment_entry, container, false)
 
-        // set clickListener
+        // ボタン押下でFortuneResultFragmentに移動
         view?.findViewById<Button>(R.id.button_telling_fortune)?.setOnClickListener {
             val transaction = fragmentManager?.beginTransaction()
             transaction?.addToBackStack(null)

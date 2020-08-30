@@ -10,6 +10,9 @@ import com.fortune.fragment.EntryFragment
 
 class MainActivity : AppCompatActivity() {
 
+    /**
+     * Activity描画
+     */
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         toolbar.title = "pretty chipper"
         setSupportActionBar(toolbar)
 
+        // EntryFragment描画
         val transaction = supportFragmentManager.beginTransaction()
         transaction.addToBackStack(null)
         transaction.replace(R.id.container, EntryFragment())
