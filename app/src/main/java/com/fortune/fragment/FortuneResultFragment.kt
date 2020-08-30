@@ -41,7 +41,7 @@ class FortuneResultFragment: Fragment() {
                 val url = "http://api.jugemkey.jp/api/horoscope/free/" + getCurrentDate()
                 RestApiClient().requestGet(url)
             }.let {
-                delay(5000)
+                delay(2000)
                 // mapping json to bean
                 val fortuneResult = parseJson(getCurrentDate(), it)
                 // set TextView

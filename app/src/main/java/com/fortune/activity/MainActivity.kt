@@ -4,9 +4,9 @@ import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.fortune.R
 import com.fortune.fragment.EntryFragment
-import com.fortune.fragment.FortuneResultFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +14,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // actionbar
+        val toolbar = findViewById<Toolbar>(R.id.toolbar_fortune)
+        toolbar.title = "pretty chipper"
+        setSupportActionBar(toolbar)
 
         val transaction = supportFragmentManager.beginTransaction()
         transaction.addToBackStack(null)
