@@ -7,8 +7,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.fortune.R
 import com.fortune.fragment.EntryFragment
+import io.realm.Realm
 
 class MainActivity : AppCompatActivity() {
+
+    var realm: Realm
+
+    init {
+        // Realm初期化
+        Realm.init(this)
+        this.realm = Realm.getDefaultInstance()
+    }
 
     /**
      * Activity描画
@@ -27,5 +36,9 @@ class MainActivity : AppCompatActivity() {
         transaction.addToBackStack(null)
         transaction.replace(R.id.container, EntryFragment())
         transaction.commit()
+    }
+
+    fun getRealmInstance(): Realm {
+        return this.realm
     }
 }
